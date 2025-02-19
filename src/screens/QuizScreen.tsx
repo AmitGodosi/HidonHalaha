@@ -1,9 +1,11 @@
+
 import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
-import { Text, Button } from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
+import { Text } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../types";
 import { RouteProp } from "@react-navigation/native";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 interface Question {
   id: string;
@@ -44,15 +46,18 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({ navigation }: QuizScreen
 
   return (
     <View style={styles.container}>
+      <MaterialCommunityIcons name="help-circle" size={48} color="#4A90E2" style={styles.icon} />
       <Text style={styles.question}>
         {sampleQuestions[currentQuestion].question}
       </Text>
       {sampleQuestions[currentQuestion].options.map((option, index) => (
-        <Button
+        <TouchableOpacity
           key={index}
-          title={option}
+          style={styles.optionButton}
           onPress={() => handleAnswer(index)}
-        />
+        >
+          <Text style={styles.optionText}>{option}</Text>
+        </TouchableOpacity>
       ))}
     </View>
   );
@@ -62,10 +67,37 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    justifyContent: "center",
+    backgroundColor: '#F5F6F8',
+    alignItems: 'center',
+  },
+  icon: {
+    marginBottom: 20,
   },
   question: {
-    fontSize: 20,
-    marginBottom: 20,
+    fontSize: 24,
+    marginBottom: 30,
+    textAlign: 'center',
+    color: '#2C3E50',
+    fontWeight: '600',
+  },
+  optionButton: {
+    width: '100%',
+    padding: 16,
+    backgroundColor: '#FFFFFF',
+    marginBottom: 12,
+    borderRadius: 12,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  optionText: {
+    fontSize: 18,
+    color: '#2C3E50',
+    textAlign: 'center',
   },
 });
