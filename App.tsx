@@ -30,6 +30,7 @@ export default function App() {
               <Stack.Screen name="Home" component={HomeScreen} />
               <Stack.Screen name="Quiz" component={QuizScreen} />
               <Stack.Screen name="Result" component={ResultScreen} />
+              <Stack.Screen name="Admin" component={AdminScreen} />
             </Stack.Navigator>
           </NavigationContainer>
         </SafeAreaView>

@@ -14,10 +14,11 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }: LoginScr
 
 	const handleLogin = async (): Promise<void> => {
 		try {
-			await AsyncStorage.setItem("user", JSON.stringify({ email }));
-			navigation.replace("Home");
+			const isAdmin = email.toLowerCase() === 'admin';
+			await AsyncStorage.setItem("user", JSON.stringify({ email, isAdmin }));
+			navigation.replace(isAdmin ? "Admin" : "Home");
 		} catch (error) {
-			Alert.alert("Error", "Login failed");
+			Alert.alert("שגיאה", "התחברות נכשלה");
 		}
 	};
 

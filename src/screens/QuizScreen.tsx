@@ -47,10 +47,25 @@ const sampleQuestions: Question[] = [
 ];
 
 export const QuizScreen: React.FC<QuizScreenProps> = ({ navigation }: QuizScreenProps) => {
+  const [questions, setQuestions] = useState<Question[]>(sampleQuestions);
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [showFeedback, setShowFeedback] = useState<boolean>(false);
+
+  useEffect(() => {
+    const loadQuestions = async () => {
+      try {
+        const storedQuestions = await AsyncStorage.getItem('questions');
+        if (storedQuestions) {
+          setQuestions(JSON.parse(storedQuestions));
+        }
+      } catch (error) {
+        console.error('Error loading questions:', error);
+      }
+    };
+    loadQuestions();
+  }, []);
 
   const handleAnswer = (selectedOption: number): void => {
     setSelectedAnswer(selectedOption);
