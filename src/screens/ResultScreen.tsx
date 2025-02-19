@@ -1,9 +1,19 @@
+
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { Text, Button } from "react-native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RouteProp } from "@react-navigation/native";
+import { RootStackParamList } from "../../types";
 
-export const ResultScreen = ({ navigation, route }) => {
-  const { score, totalQuestions } = route.params;
+type Props = {
+  navigation: NativeStackNavigationProp<RootStackParamList, "Result">;
+  route: RouteProp<RootStackParamList, "Result">;
+};
+
+export const ResultScreen: React.FC<Props> = ({ navigation, route }) => {
+  const { score } = route.params;
+  const totalQuestions = 10; // You might want to pass this as a parameter
 
   return (
     <View style={styles.container}>

@@ -1,15 +1,22 @@
+
 import React, { useState } from "react";
 import { View, StyleSheet, Alert } from "react-native";
 import { Text, TextInput, Button } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../types";
 
-export const RegisterScreen = ({ navigation }) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+type Props = {
+  navigation: NativeStackNavigationProp<RootStackParamList, "Register">;
+};
 
-  const handleRegister = async () => {
+export const RegisterScreen: React.FC<Props> = ({ navigation }) => {
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
+
+  const handleRegister = async (): Promise<void> => {
     if (password !== confirmPassword) {
       Alert.alert("Error", "Passwords do not match");
       return;

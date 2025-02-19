@@ -4,8 +4,15 @@ export type RootStackParamList = {
   Login: undefined;
   Register: undefined;
   Home: undefined;
-  Quiz: undefined;
+  Quiz: {
+    category: {
+      id: string;
+      name: string;
+      subcategories: string[];
+    };
+  };
   Result: {
     score: number;
+    totalQuestions?: number;
   };
 };

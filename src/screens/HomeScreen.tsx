@@ -1,8 +1,21 @@
+
 import React from "react";
 import { View, StyleSheet, FlatList, TouchableOpacity } from "react-native";
 import { Text } from "react-native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../types";
 
-const categories = [
+interface Category {
+  id: string;
+  name: string;
+  subcategories: string[];
+}
+
+type Props = {
+  navigation: NativeStackNavigationProp<RootStackParamList, "Home">;
+};
+
+const categories: Category[] = [
   {
     id: "1",
     name: "History",
@@ -16,8 +29,8 @@ const categories = [
   { id: "3", name: "Movies", subcategories: ["Action", "Comedy", "Sci-Fi"] },
 ];
 
-export const HomeScreen = ({ navigation }) => {
-  const renderCategory = ({ item }) => (
+export const HomeScreen: React.FC<Props> = ({ navigation }) => {
+  const renderCategory = ({ item }: { item: Category }) => (
     <TouchableOpacity
       style={styles.categoryItem}
       onPress={() => navigation.navigate("Quiz", { category: item })}
