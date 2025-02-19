@@ -1,19 +1,26 @@
-
-import React from 'react';
-import { View, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
-import { Text } from 'react-native';
+import React from "react";
+import { View, StyleSheet, FlatList, TouchableOpacity } from "react-native";
+import { Text } from "react-native";
 
 const categories = [
-  { id: '1', name: 'History', subcategories: ['Ancient', 'Modern', 'World Wars'] },
-  { id: '2', name: 'Science', subcategories: ['Physics', 'Biology', 'Chemistry'] },
-  { id: '3', name: 'Movies', subcategories: ['Action', 'Comedy', 'Sci-Fi'] },
+  {
+    id: "1",
+    name: "History",
+    subcategories: ["Ancient", "Modern", "World Wars"],
+  },
+  {
+    id: "2",
+    name: "Science",
+    subcategories: ["Physics", "Biology", "Chemistry"],
+  },
+  { id: "3", name: "Movies", subcategories: ["Action", "Comedy", "Sci-Fi"] },
 ];
 
 export const HomeScreen = ({ navigation }) => {
   const renderCategory = ({ item }) => (
-    <TouchableOpacity 
+    <TouchableOpacity
       style={styles.categoryItem}
-      onPress={() => navigation.navigate('Quiz', { category: item })}
+      onPress={() => navigation.navigate("Quiz", { category: item })}
     >
       <Text style={styles.categoryText}>{item.name}</Text>
     </TouchableOpacity>
@@ -25,7 +32,7 @@ export const HomeScreen = ({ navigation }) => {
       <FlatList
         data={categories}
         renderItem={renderCategory}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
       />
     </View>
   );
@@ -42,7 +49,7 @@ const styles = StyleSheet.create({
   },
   categoryItem: {
     padding: 15,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: "#f0f0f0",
     marginBottom: 10,
     borderRadius: 5,
   },

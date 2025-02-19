@@ -1,13 +1,12 @@
-
-import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Text, Button } from 'react-native';
+import React, { useState } from "react";
+import { View, StyleSheet } from "react-native";
+import { Text, Button } from "react-native";
 
 const sampleQuestions = [
   {
-    id: '1',
-    question: 'What is the capital of France?',
-    options: ['London', 'Berlin', 'Paris', 'Madrid'],
+    id: "1",
+    question: "What is the capital of France?",
+    options: ["London", "Berlin", "Paris", "Madrid"],
     correctAnswer: 2,
   },
   // Add more sample questions
@@ -21,11 +20,11 @@ export const QuizScreen = ({ navigation, route }) => {
     if (selectedOption === sampleQuestions[currentQuestion].correctAnswer) {
       setScore(score + 1);
     }
-    
+
     if (currentQuestion < sampleQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      navigation.navigate('Result', { score });
+      navigation.navigate("Result", { score });
     }
   };
 
@@ -50,7 +49,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   question: {
     fontSize: 20,
