@@ -36,6 +36,48 @@ const categories: Category[] = [
     icon: "book-open-variant",
     subcategories: ["שחרית", "מנחה", "ערבית"] 
   },
+  {
+    id: "4",
+    name: "הלכות ברכות",
+    icon: "food-apple",
+    subcategories: ["ברכות הנהנין", "ברכת המזון", "ברכות השחר"],
+  },
+  {
+    id: "5",
+    name: "הלכות שמיטה",
+    icon: "sprout",
+    subcategories: ["קדושת שביעית", "ספיחין", "היתר מכירה"],
+  },
+  {
+    id: "6",
+    name: "הלכות מועדים",
+    icon: "calendar",
+    subcategories: ["ראש השנה", "סוכות", "פסח"],
+  },
+  {
+    id: "7",
+    name: "הלכות טהרה",
+    icon: "water",
+    subcategories: ["נידה", "טבילה", "חציצה"],
+  },
+  {
+    id: "8",
+    name: "הלכות צדקה",
+    icon: "hand-heart",
+    subcategories: ["מעשר כספים", "צדקה לעניים", "מתנות לאביונים"],
+  },
+  {
+    id: "9",
+    name: "הלכות תלמוד תורה",
+    icon: "school",
+    subcategories: ["קביעת עיתים", "כבוד רבו", "שינון"],
+  },
+  {
+    id: "10",
+    name: "הלכות בין אדם לחברו",
+    icon: "account-group",
+    subcategories: ["לשון הרע", "הלבנת פנים", "צער בעלי חיים"],
+  },
 ];
 
 export const HomeScreen: React.FC<Props> = ({ navigation }) => {
