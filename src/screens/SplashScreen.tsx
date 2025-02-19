@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { View, Image, StyleSheet } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
