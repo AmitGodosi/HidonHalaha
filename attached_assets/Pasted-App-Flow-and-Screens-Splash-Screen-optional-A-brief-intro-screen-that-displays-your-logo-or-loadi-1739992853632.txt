@@ -1,0 +1,58 @@
+App Flow and Screens
+Splash Screen (optional)
+
+A brief intro screen that displays your logo or loading animation.
+This can transition to the Home screen after a few seconds.
+Login Screen
+
+Fields: Username/Email and Password.
+Buttons: Login, Register, and Forgot Password (if you need that feature).
+Functionality:
+If the user logs in successfully, their details are stored in local storage (AsyncStorage or cookies).
+If they don’t have an account, they can navigate to a Register screen.
+Flow:
+
+If login is successful, store user data (like token or username) in cache (e.g., AsyncStorage).
+Redirect to the Home Screen.
+Home Screen (Categories & Subcategories)
+
+Components:
+A list/grid of trivia categories (e.g., Movies, History, Sports, etc.).
+Each category can be clicked to reveal subcategories (e.g., for Movies: “Action,” “Comedy,” “Sci-Fi,” etc.).
+Buttons to start the trivia quiz or navigate to the Admin Panel (for users with admin access).
+Flow:
+Once the user clicks on a category, they should see a list of subcategories.
+Clicking on a subcategory should navigate them to the Question Screen.
+Question Screen (Trivia Question)
+
+Components:
+Question Text: The trivia question.
+Multiple Choice Options: Display multiple options, and the user can select one.
+Timer: A countdown timer for answering the question.
+Buttons: “Submit” and “Next” (for moving to the next question).
+Functionality:
+Once the user selects an answer, you can show if they were right or wrong.
+After a short delay, the next question loads automatically, or the user can manually click “Next.”
+Track and show the user’s score as they progress.
+Flow:
+
+After answering a question, show the result (correct or incorrect).
+Proceed to the next question, or end the quiz if no more questions are left.
+Result Screen
+
+Show the user’s score after completing the quiz.
+Optionally, offer an option to play again or share results.
+Admin Panel (For Admin Users)
+
+Admins can log in and manage questions and categories.
+Features:
+Add/Remove Categories.
+Add/Remove Questions (with correct answers, multiple choices, and related category/subcategory).
+Edit existing questions (e.g., change wording or options).
+Flow:
+Admins access the admin panel from the Home screen.
+From there, they can manage trivia categories and questions.
+Register Screen (For New Users)
+
+Fields: Name, Email, Password, Confirm Password.
+Functionality: Once the user registers, they will be logged in automatically, and their details will be stored in cache (AsyncStorage or cookies).
