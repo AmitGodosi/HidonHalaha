@@ -19,7 +19,10 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false }}>
+          <Stack.Navigator
+            initialRouteName="Splash"
+            screenOptions={{ headerShown: false }}
+          >
             <Stack.Screen name="Splash" component={SplashScreenComponent} />
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Register" component={RegisterScreen} />

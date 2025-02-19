@@ -1,7 +1,6 @@
-
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Text, Button } from 'react-native';
+import React from "react";
+import { View, StyleSheet } from "react-native";
+import { Text, Button } from "react-native";
 
 export const ResultScreen = ({ navigation, route }) => {
   const { score, totalQuestions } = route.params;
@@ -12,10 +11,7 @@ export const ResultScreen = ({ navigation, route }) => {
       <Text style={styles.score}>
         Your Score: {score}/{totalQuestions}
       </Text>
-      <Button
-        title="Play Again"
-        onPress={() => navigation.navigate('Home')}
-      />
+      <Button title="Play Again" onPress={() => navigation.navigate("Home")} />
     </View>
   );
 };
@@ -24,8 +20,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   title: {
     fontSize: 24,

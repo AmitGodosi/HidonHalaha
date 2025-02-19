@@ -1,12 +1,18 @@
 
-import React, { useEffect } from 'react';
-import { View, Image, StyleSheet } from 'react-native';
-import * as SplashScreen from 'expo-splash-screen';
+import React, { useEffect } from "react";
+import { View, Image, StyleSheet } from "react-native";
+import * as SplashScreen from "expo-splash-screen";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../types";
 
-export const SplashScreenComponent = ({ navigation }) => {
+type Props = {
+  navigation: NativeStackNavigationProp<RootStackParamList, "Splash">;
+};
+
+export const SplashScreenComponent: React.FC<Props> = ({ navigation }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.replace('Login');
+      navigation.replace("Login");
     }, 2000);
 
     return () => clearTimeout(timer);
@@ -14,7 +20,7 @@ export const SplashScreenComponent = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Image source={require('../../assets/splash.png')} style={styles.logo} />
+      <Image source={require("../../assets/splash.png")} style={styles.logo} />
     </View>
   );
 };
@@ -22,13 +28,13 @@ export const SplashScreenComponent = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#ffffff',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#ffffff",
   },
   logo: {
     width: 200,
     height: 200,
-    resizeMode: 'contain',
+    resizeMode: "contain",
   },
 });

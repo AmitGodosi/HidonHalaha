@@ -1,22 +1,37 @@
+
 import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { Text, Button } from "react-native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../types";
+import { RouteProp } from "@react-navigation/native";
 
-const sampleQuestions = [
+interface Question {
+  id: string;
+  question: string;
+  options: string[];
+  correctAnswer: number;
+}
+
+type Props = {
+  navigation: NativeStackNavigationProp<RootStackParamList, "Quiz">;
+  route: RouteProp<RootStackParamList, "Quiz">;
+};
+
+const sampleQuestions: Question[] = [
   {
     id: "1",
     question: "What is the capital of France?",
     options: ["London", "Berlin", "Paris", "Madrid"],
     correctAnswer: 2,
   },
-  // Add more sample questions
 ];
 
-export const QuizScreen = ({ navigation, route }) => {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
+export const QuizScreen: React.FC<Props> = ({ navigation }) => {
+  const [currentQuestion, setCurrentQuestion] = useState<number>(0);
+  const [score, setScore] = useState<number>(0);
 
-  const handleAnswer = (selectedOption) => {
+  const handleAnswer = (selectedOption: number): void => {
     if (selectedOption === sampleQuestions[currentQuestion].correctAnswer) {
       setScore(score + 1);
     }
@@ -38,7 +53,6 @@ export const QuizScreen = ({ navigation, route }) => {
           key={index}
           title={option}
           onPress={() => handleAnswer(index)}
-          style={styles.optionButton}
         />
       ))}
     </View>
@@ -54,8 +68,5 @@ const styles = StyleSheet.create({
   question: {
     fontSize: 20,
     marginBottom: 20,
-  },
-  optionButton: {
-    marginBottom: 10,
   },
 });
