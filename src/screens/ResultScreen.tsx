@@ -5,12 +5,12 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RouteProp } from "@react-navigation/native";
 import { RootStackParamList } from "../../types";
 
-type Props = {
+type ResultScreenProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, "Result">;
   route: RouteProp<RootStackParamList, "Result">;
 };
 
-export const ResultScreen: React.FC<Props> = ({ navigation, route }) => {
+export const ResultScreen: React.FC<ResultScreenProps> = ({ navigation, route }: ResultScreenProps) => {
   const { score } = route.params;
   const totalQuestions = 10; // You might want to pass this as a parameter
 

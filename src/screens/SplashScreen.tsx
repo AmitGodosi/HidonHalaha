@@ -4,11 +4,11 @@ import * as SplashScreen from "expo-splash-screen";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../types";
 
-type Props = {
+type SplashScreenProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, "Splash">;
 };
 
-export const SplashScreenComponent: React.FC<Props> = ({ navigation }) => {
+export const SplashScreenComponent: React.FC<SplashScreenProps> = ({ navigation }: SplashScreenProps) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigation.replace("Login");

@@ -12,7 +12,7 @@ interface Question {
   correctAnswer: number;
 }
 
-type Props = {
+type QuizScreenProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, "Quiz">;
   route: RouteProp<RootStackParamList, "Quiz">;
 };
@@ -26,7 +26,7 @@ const sampleQuestions: Question[] = [
   },
 ];
 
-export const QuizScreen: React.FC<Props> = ({ navigation }) => {
+export const QuizScreen: React.FC<QuizScreenProps> = ({ navigation }: QuizScreenProps) => {
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
 
