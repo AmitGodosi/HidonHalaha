@@ -4,23 +4,35 @@ import { View, StyleSheet, Alert } from 'react-native';
 import { Text, TextInput, Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const LoginScreen = ({ navigation }) => {
+export const RegisterScreen = ({ navigation }) => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleLogin = async () => {
+  const handleRegister = async () => {
+    if (password !== confirmPassword) {
+      Alert.alert('Error', 'Passwords do not match');
+      return;
+    }
+
     try {
-      // In a real app, validate credentials with backend
-      await AsyncStorage.setItem('user', JSON.stringify({ email }));
+      await AsyncStorage.setItem('user', JSON.stringify({ name, email }));
       navigation.replace('Home');
     } catch (error) {
-      Alert.alert('Error', 'Login failed');
+      Alert.alert('Error', 'Registration failed');
     }
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+      <Text style={styles.title}>Register</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Name"
+        value={name}
+        onChangeText={setName}
+      />
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -35,11 +47,14 @@ export const LoginScreen = ({ navigation }) => {
         onChangeText={setPassword}
         secureTextEntry
       />
-      <Button title="Login" onPress={handleLogin} />
-      <Button
-        title="Register"
-        onPress={() => navigation.navigate('Register')}
+      <TextInput
+        style={styles.input}
+        placeholder="Confirm Password"
+        value={confirmPassword}
+        onChangeText={setConfirmPassword}
+        secureTextEntry
       />
+      <Button title="Register" onPress={handleRegister} />
     </View>
   );
 };
