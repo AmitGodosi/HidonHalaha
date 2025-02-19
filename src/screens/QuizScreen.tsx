@@ -21,27 +21,27 @@ type QuizScreenProps = {
 const sampleQuestions: Question[] = [
   {
     id: "1",
-    question: "What is the capital of France?",
-    options: ["London", "Berlin", "Paris", "Madrid"],
-    correctAnswer: 2,
+    question: "מתי מותר להחזיר סיר לפלטה בשבת?",
+    options: ["תמיד מותר", "רק כשהתבשיל עדיין חם", "אסור בכל מקרה", "רק אם הפלטה מכוסה"],
+    correctAnswer: 1,
   },
   {
     id: "2",
-    question: "What is the highest mountain in the world?",
-    options: ["K2", "Kangchenjunga", "Mount Everest", "Lhotse"],
+    question: "כמה זמן צריך להמתין בין בשר לחלב?",
+    options: ["שעה אחת", "שלוש שעות", "שש שעות", "שתים עשרה שעות"],
     correctAnswer: 2,
   },
   {
     id: "3",
-    question: "What is the largest ocean in the world?",
-    options: ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
-    correctAnswer: 3,
+    question: "מהו הזמן המאוחר ביותר לתפילת שחרית?",
+    options: ["חצות היום", "שעה רביעית", "סוף היום", "עלות השחר"],
+    correctAnswer: 1,
   },
   {
     id: "4",
-    question: "What is the chemical symbol for water?",
-    options: ["CO2", "H2O", "O2", "NaCl"],
-    correctAnswer: 1,
+    question: "איזה ברכה מברכים על פיתה?",
+    options: ["המוציא לחם", "מזונות", "שהכל", "בורא פרי האדמה"],
+    correctAnswer: 0,
   },
 
 ];

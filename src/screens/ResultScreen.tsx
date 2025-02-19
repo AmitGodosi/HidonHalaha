@@ -1,4 +1,3 @@
-
 import React from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { Text } from "react-native";
@@ -23,16 +22,16 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ navigation, route }:
         size={80} 
         color="#4A90E2" 
       />
-      <Text style={styles.title}>Quiz Complete!</Text>
+      <Text style={styles.title}>המבחן הסתיים!</Text>
       <Text style={styles.score}>
-        Your Score: {score}/{totalQuestions}
+        הציון שלך: {score}/{totalQuestions}
       </Text>
       <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate("Home")}
       >
         <MaterialCommunityIcons name="replay" size={24} color="#FFFFFF" />
-        <Text style={styles.buttonText}>Play Again</Text>
+        <Text style={styles.buttonText}>שחק שוב</Text>
       </TouchableOpacity>
     </View>
   );

@@ -20,21 +20,21 @@ type Props = {
 const categories: Category[] = [
   {
     id: "1",
-    name: "History",
-    icon: "book-open-page-variant",
-    subcategories: ["Ancient", "Modern", "World Wars"],
+    name: "הלכות שבת",
+    icon: "candlesticks",
+    subcategories: ["מוקצה", "בישול", "הבדלה"],
   },
   {
     id: "2",
-    name: "Science",
-    icon: "flask",
-    subcategories: ["Physics", "Biology", "Chemistry"],
+    name: "הלכות כשרות",
+    icon: "food-kosher",
+    subcategories: ["בשר וחלב", "תולעים", "פסח"],
   },
   { 
     id: "3", 
-    name: "Movies", 
-    icon: "movie",
-    subcategories: ["Action", "Comedy", "Sci-Fi"] 
+    name: "הלכות תפילה", 
+    icon: "book-open-variant",
+    subcategories: ["שחרית", "מנחה", "ערבית"] 
   },
 ];
 
@@ -51,7 +51,7 @@ export const HomeScreen: React.FC<Props> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Select Category</Text>
+      <Text style={styles.title}>בחר נושא</Text>
       <FlatList
         data={categories}
         renderItem={renderCategory}

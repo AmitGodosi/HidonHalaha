@@ -23,10 +23,10 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }: LoginScr
 
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Login</Text>
+			<Text style={styles.title}>כניסה</Text>
 			<TextInput
 				style={styles.input}
-				placeholder="User Name"
+				placeholder="שם משתמש"
 				value={email}
 				onChangeText={setEmail}
 				autoCapitalize="none"
